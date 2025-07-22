@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analysis Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    select {
+      padding: 8px;
+      margin: 10px;
+      font-size: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Analysis Tool</h1>
+
+  <div style="text-align:center;">
+    <label for="strategy">Strategy:</label>
+    <select id="strategy">
+      <option value="rise-fall">Rise/Fall</option>
+      <option value="over-under">Over/Under</option>
+      <option value="even-odd">Even/Odd</option>
+      <option value="matches-differs">Matches/Differs</option>
+    </select>
+
+    <label for="volatility">Volatility:</label>
+    <select id="volatility">
+      <option value="Vol 50">Vol 50</option>
+      <option value="Vol 75">Vol 75</option>
+      <option value="Vol 100">Vol 100</option>
+      <option value="Vol 100 (1s)">Vol 100 (1s)</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Digit</th>
+        <th>Times Appeared (Last 3 Cycles)</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody">
+      <!-- Rows will be inserted here -->
+    </tbody>
+  </table>
+
+  <script>
+    function generateRandomData() {
+      const tbody = document.getElementById("dataBody");
+      tbody.innerHTML = "";
+      for (let i = 0; i < 10; i++) {
+        const count = Math.floor(Math.random() * 10);
+        const percent = ((count / 30) * 100).toFixed(1);
+        const row = `
+          <tr>
+            <td>${i}</td>
+            <td>${count}</td>
+            <td>${percent}%</td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      }
+    }
+
+    generateRandomData();
+    setInterval(generateRandomData, 3000); // Update every 3 seconds
+  </script>
+
+</body>
+</html>
+
+      
