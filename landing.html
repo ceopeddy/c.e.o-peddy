@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C.E.O PEDDY TRADING SPACE</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ff88;
+      z-index: 2;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      z-index: 2;
+    }
+
+    .dollar {
+      position: absolute;
+      top: -5%;
+      font-size: 1.5rem;
+      color: #00ff88;
+      animation: fall 10s linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to C.E.O PEDDY TRADING SPACE</h1>
+    <p>HOME OF TRADERS</p>
+
+    <!-- Dollar Animation -->
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const dollar = document.createElement("div");
+        dollar.className = "dollar";
+        dollar.textContent = "$";
+        dollar.style.left = Math.random() * 100 + "%";
+        dollar.style.animationDelay = Math.random() * 10 + "s";
+        document.body.appendChild(dollar);
+      }
+
+      // Remove dollars after 10 seconds
+      setTimeout(() => {
+        document.querySelectorAll(".dollar").forEach(d => d.remove());
+      }, 10000);
+    </script>
+  </div>
+</body>
+</html>
