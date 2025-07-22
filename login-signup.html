@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | C.E.O PEDDY TRADER</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: #00ff88;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      background-color: #00ff88;
+      color: #111;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #00cc6e;
+    }
+
+    .info {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>C.E.O PEDDY LOGIN</h1>
+
+  <button class="btn" onclick="loginToDeriv()">Login with Deriv</button>
+
+  <div class="info">
+    You will be redirected to Deriv, then back to our trading space.
+  </div>
+
+  <script>
+    function loginToDeriv() {
+      const appId = 85977;
+      const redirectUrl = "https://www.ceopeddy.vercel.app"; // Your live site URL
+      const loginUrl = `https://oauth.deriv.com/oauth2/authorize?app_id=${appId}&redirect_uri=${redirectUrl}`;
+      window.location.href = loginUrl;
+    }
+  </script>
+
+</body>
+</html>
